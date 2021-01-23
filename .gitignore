@@ -1,0 +1,6 @@
+# Ignore Contents of the Data Folder (Except the README File)
+data/*
+!data/README.md
+
+# Ignore Python Output Files
+__pycache__
