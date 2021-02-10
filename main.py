@@ -1,1 +1,0 @@
-# Main Implementation of the Vehicle Detector

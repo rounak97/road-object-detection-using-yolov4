@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.com/sourabbapusridhar/vehicle-detection-using-yolov4.svg?branch=master)](https://www.travis-ci.com/sourabbapusridhar)
+
 # Vehicle Detection Using YoloV4
 
 The goal of this project is to detect vehicles using [Yolov4](https://github.com/AlexeyAB/darknet).
