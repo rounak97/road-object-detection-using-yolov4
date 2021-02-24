@@ -1,8 +1,6 @@
-[![Build Status](https://www.travis-ci.com/sourabbapusridhar/vehicle-detection-using-yolov4.svg?branch=master)](https://www.travis-ci.com/sourabbapusridhar)
+# Road Object Detection Using YoloV4
 
-# Vehicle Detection Using YoloV4
-
-The goal of this project is to detect vehicles using [Yolov4](https://github.com/AlexeyAB/darknet).
+The goal of this project is to detect Road Objects using [Yolov4](https://github.com/AlexeyAB/darknet). The network is trained on [Berkley DeepDrive Dataset](https://bdd-data.berkeley.edu/).
 
 ## Requirements
 The code is based on Python3 (>=3.7). There are a few dependencies to run the code. The major libraries are listed as follows:
