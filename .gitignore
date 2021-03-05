@@ -1,6 +1,10 @@
-# Ignore Contents of the Data Folder (Except the README File)
+# Ignore Additional Files from the Data Folder
 data/*
-!data/README.md
+!data/BDD100K.data
+!data/BDD100K.names
 
 # Ignore Python Output Files
 __pycache__
+
+# Ignore VSCode Files
+.vscode
