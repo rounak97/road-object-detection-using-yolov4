@@ -1,7 +1,7 @@
 # Ignore Additional Files from the Data Folder
 data/*
-!data/BDD100K.data
-!data/BDD100K.names
+!data/bdd100k.data
+!data/bdd100k.names
 
 # Ignore Python Output Files
 __pycache__
