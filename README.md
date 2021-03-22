@@ -19,7 +19,9 @@ The code is based on Python3 (>=3.7). There are a few dependencies to run the co
 ## Installation Guide
 To install the anaconda environment, navigate to the repository folder, and run the following command in the terminal:
 
-`conda env create -f environment.yml`
+```
+$conda env create -f environment.yml
+```
 
 ## Execution Guide
 1. To activate the Conda environment, please run the following command in the terminal:
@@ -28,9 +30,9 @@ To install the anaconda environment, navigate to the repository folder, and run 
 $conda activate yolo
 ```
 
-2. Train the YOLOv4 network in the Conda environment using by the following the instructions [here]().
+2. Train the YOLOv4 network in the Conda environment using by the following the instructions [here](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4#training-the-yolov4-network).
 
-3. Test the YOLOv4 network in the Conda environment using by the following the instructions [here]().
+3. Test the YOLOv4 network in the Conda environment using by the following the instructions [here](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4#testing-the-yolov4-network).
 
 4. To deactivate the Conda environment, please run the following command in the terminal:
 
@@ -54,7 +56,9 @@ $wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_opti
 $wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29     # For training cfg/yolov4-tiny-custom.cfg
 ```
 
-3. 
+3. *To be added*
+
+
 ## Testing the YOLOv4 network
 *To be added*
 
