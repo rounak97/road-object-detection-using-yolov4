@@ -25,18 +25,16 @@ def create_text_files(inputTrainingDirectory, inputValidationDirectory, outputDi
     
     print("Generating Text Files for Training Data...")
 
-    with open(outputDirectory + "Train.txt", "w+") as trainingOutputFile:
+    with open(outputDirectory + "bdd100k_train.txt", "w+") as trainingOutputFile:
         
         for individualTrainingImagePath in tqdm(glob.glob(inputTrainingDirectory + "*.jpg")):
             trainingOutputFile.write(repr(individualTrainingImagePath) + "\n")
 
     print("Files Generated for Training Data Successfully!!")
 
-    print("\n\n")
-
     print("Generating Text Files for Validation Data...")
 
-    with open(outputDirectory + "Val.txt", "w+") as validationOutputFile:
+    with open(outputDirectory + "bdd100k_val.txt", "w+") as validationOutputFile:
         
         for individualValidationImagePath in tqdm(glob.glob(inputValidationDirectory + "*.jpg")):
             validationOutputFile.write(repr(individualValidationImagePath) + "\n")
