@@ -36,7 +36,7 @@ def json_to_text(inputData, namesData, outputDirectory, maxWidth, maxHeight):
 
     for individualImage in tqdm(inputData):
         imageName = individualImage["name"]
-        outputFilePath = outputDirectory + "\\" + imageName[:-4]+ ".txt"
+        outputFilePath = outputDirectory + imageName[:-4]+ ".txt"
 
         with open(outputFilePath, "w+") as outputFile:
 

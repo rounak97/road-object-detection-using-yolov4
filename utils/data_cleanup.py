@@ -21,7 +21,7 @@ def delete_unannotated_images(inputDirectory):
     print("Deleting Unannotated Images...")
     unannotatedImageCount = 0
 
-    for individualImagePath in tqdm(glob.glob(inputDirectory + "\\*.jpg")):
+    for individualImagePath in tqdm(glob.glob(inputDirectory + "*.jpg")):
         imageName = os.path.splitext(individualImagePath)[0]
         labelName = imageName + ".txt"
 
