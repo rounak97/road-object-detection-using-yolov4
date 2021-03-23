@@ -48,15 +48,30 @@ $git clone https://github.com/AlexeyAB/darknet.git    # Official YOLOv4 Implemen
 $git clone https://github.com/sourabbapusridhar/road-object-detection-using-yolov4.git      # Road Object Detection Using YoloV4 repository
 ```
 
-2. For training `cfg/yolov4-custom.cfg` or `yolov4-tiny-custom.cfg`, download the corresponding pretrained weights file using the following commands in the terminal:
+2. For training on a GPU, the parameters `OPENCV`, `GPU`, `CUDNN` need to be set in the Makefile. The parameter `CUDNN_HALF` can also be set in the Makefile to use the Tensor Cores. To set the paramters mentioned above, run the following commands in the terminal:
+
+```
+$cd darknet
+$sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+$sed -i 's/GPU=0/GPU=1/' Makefile
+$sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+$sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+```
+
+3. To build Darknet, please run the following command in the terminal:
+
+```
+$cd darknet
+$make
+```
+
+4. For training `cfg/yolov4-custom.cfg` or `yolov4-tiny-custom.cfg`, download the corresponding pretrained weights file using the following commands in the terminal:
 
 ```
 $cd darknet
 $wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137     # For training cfg/yolov4-custom.cfg
 $wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29     # For training cfg/yolov4-tiny-custom.cfg
 ```
-
-3. *To be added*
 
 
 ## Testing the YOLOv4 network
