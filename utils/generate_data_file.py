@@ -34,11 +34,11 @@ def create_data_file(classes, trainingPath, validationPath, names, backup, outpu
     print("overallPath = ", overallPath)
 
     with open(overallPath, "w+") as outputFile:
-        outputFile.write("classes = " + repr(classes) + "\n")
-        outputFile.write("train = " + repr(os.path.normpath(trainingPath)) + "\n")
-        outputFile.write("valid = " + repr(os.path.normpath(validationPath)) + "\n")
-        outputFile.write("names = " + repr(os.path.normpath(names)) + "\n")
-        outputFile.write("backup = " + repr(os.path.normpath(backup)) + "\n")
+        outputFile.write(("classes = " + repr(classes) + "\n").replace('"','').replace("'",""))
+        outputFile.write(("train = " + repr(os.path.normpath(trainingPath)) + "\n").replace('"','').replace("'",""))
+        outputFile.write(("valid = " + repr(os.path.normpath(validationPath)) + "\n").replace('"','').replace("'",""))
+        outputFile.write(("names = " + repr(os.path.normpath(names)) + "\n").replace('"','').replace("'",""))
+        outputFile.write(("backup = " + repr(os.path.normpath(backup)) + "\n").replace('"','').replace("'",""))
 
     print("Data file generation successful!")
 
