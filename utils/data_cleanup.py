@@ -34,7 +34,7 @@ def delete_unannotated_images(inputDirectory):
 
 def data_cleanup(inputDirectory):
     """
-    Wrapper function to pass the arguments to the delete_unannotated_images function.
+    Wrapper function to pass the arguments to the delete_unannotated_images() function.
 
     Parameters
     ----------

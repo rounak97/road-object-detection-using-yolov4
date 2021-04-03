@@ -28,10 +28,7 @@ def create_text_files(inputTrainingDirectory, inputValidationDirectory, outputDi
     with open(outputDirectory + "bdd100k_train.txt", "w+") as trainingOutputFile:
         
         for individualTrainingImagePath in tqdm(glob.glob(inputTrainingDirectory + "*.jpg")):
-            trainingOutputFile.write(repr(individualTrainingImagePath) + "\n")
-
-	for individualTrainingImagePath in trainingOutputFile:
-	    trainingOutputFile.write(individualTrainingImagePath.replace('"','').replace("'",""))
+            trainingOutputFile.write((repr(individualTrainingImagePath) + "\n").replace('"','').replace("'",""))
 
     print("Files Generated for Training Data Successfully!!")
 
@@ -40,17 +37,14 @@ def create_text_files(inputTrainingDirectory, inputValidationDirectory, outputDi
     with open(outputDirectory + "bdd100k_val.txt", "w+") as validationOutputFile:
         
         for individualValidationImagePath in tqdm(glob.glob(inputValidationDirectory + "*.jpg")):
-            validationOutputFile.write(repr(individualValidationImagePath) + "\n")
-
-	for individualValidationImagePath in validationOutputFile:
-	    validationOutputFile.write(individualValidationImagePath.replace('"','').replace("'",""))
+            validationOutputFile.write((repr(individualValidationImagePath) + "\n").replace('"','').replace("'",""))
 
     print("Files Generated for Validation Data Successfully!!")
 
 
 def generate_paths(inputTrainingDirectory, inputValidationDirectory, outputDirectory):
     """
-    Wrapper function to pass the arguments to the create_text_files function.
+    Wrapper function to pass the arguments to the create_text_files() function.
 
     Parameters
     ----------

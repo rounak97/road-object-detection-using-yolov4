@@ -65,7 +65,7 @@ def json_to_text(inputData, namesData, outputDirectory, maxWidth, maxHeight):
 
 def convert_labels(inputJsonPath, inputNamesPath, outputDirectory, maxWidth, maxHeight):
     """
-    Wrapper function to pass the arguments to the json_to_text function.
+    Wrapper function to pass the arguments to the json_to_text() function.
 
     Parameters
     ----------
