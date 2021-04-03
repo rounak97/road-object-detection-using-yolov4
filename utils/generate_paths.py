@@ -30,6 +30,9 @@ def create_text_files(inputTrainingDirectory, inputValidationDirectory, outputDi
         for individualTrainingImagePath in tqdm(glob.glob(inputTrainingDirectory + "*.jpg")):
             trainingOutputFile.write(repr(individualTrainingImagePath) + "\n")
 
+	for individualTrainingImagePath in trainingOutputFile:
+	    trainingOutputFile.write(individualTrainingImagePath.replace('"','').replace("'",""))
+
     print("Files Generated for Training Data Successfully!!")
 
     print("Generating Text Files for Validation Data...")
@@ -38,6 +41,9 @@ def create_text_files(inputTrainingDirectory, inputValidationDirectory, outputDi
         
         for individualValidationImagePath in tqdm(glob.glob(inputValidationDirectory + "*.jpg")):
             validationOutputFile.write(repr(individualValidationImagePath) + "\n")
+
+	for individualValidationImagePath in validationOutputFile:
+	    validationOutputFile.write(individualValidationImagePath.replace('"','').replace("'",""))
 
     print("Files Generated for Validation Data Successfully!!")
 
@@ -74,8 +80,8 @@ def main():
     None
     """
     parser = argparse.ArgumentParser(description="Script to generate text files containing training and validation image paths for YoloV4")
-    parser.add_argument("-it", "--inputTrainingDirectory", type=str, required=True, help="Path to the input directory containing training image and annotation files")
-    parser.add_argument("-iv", "--inputValidationDirectory", type=str, required=True, help="Path to the input directory containing validation image and annotation files")
+    parser.add_argument("-it", "--inputTrainingDirectory", type=str, required=True, help="Path to the input directory containing training image and annotation files (Relative to darknet")
+    parser.add_argument("-iv", "--inputValidationDirectory", type=str, required=True, help="Path to the input directory containing validation image and annotation files (Relative to darknet)")
     parser.add_argument("-o", "--outputDirectory", type=str, required=True, help="Path to the output directory")
     args = parser.parse_args()
 
