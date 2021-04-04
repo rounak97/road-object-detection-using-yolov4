@@ -29,14 +29,14 @@ $conda env create -f environment.yml
 2. Test the YOLOv4 network in the Conda environment using by the following the instructions [here](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4#testing-the-yolov4-network).
 
 ## Training the YOLOv4 network
-1. To train the YOLOv4 network on the Berkley DeepDrive dataset in the Conda environment, please update the paths and flags in the script `train.sh` and the run the following command in the terminal:
+To train the YOLOv4 network on the Berkley DeepDrive dataset in the Conda environment, please update the paths and flags in the script `train.sh` and the run the following command in the terminal:
 
 ```
-$bash script.sh
+$bash train.sh
 ```
 
 ## Testing the YOLOv4 network
-1. *To be added*
+*To be added*
 
 ## Clean-up Guide
 To remove the anaconda environment, navigate to the repository folder, and run the following command in the terminal:
