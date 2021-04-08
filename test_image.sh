@@ -29,15 +29,6 @@ DATA_FILE=$DARKNET_REPO_PATH/data/bdd100k/bdd100k.data                         #
 # Provide the number of images to be processed at the same time
 BATCH_SIZE=1                                                                   #e.g. 1, 2, 3....
 
-# Set to True if windows inference display is **not** available
-DONT_SHOW=True                                                                 #e.g. True, False
-
-# Set to True if bounding box coordinates of the detected objects need to be displayed
-EXT_OUTPUT=True                                                                #e.g. True, False
-
-# Set to True if bounding box detections for each image must be saved in YOLO format
-SAVE_LABELS=True                                                               #e.g. True, False
-
 # Set a value to remove detections with lower confidence
 THRESH=0.25                                                                    #e.g. 0.1, 0.2, 0.3...
 
@@ -54,9 +45,6 @@ echo "Path to the weights file: $WEIGHTS"
 echo "Path to the config file: $CONFIG_FILE"
 echo "Path to the data file: $DATA_FILE"
 echo "Value of batch size: $BATCH_SIZE"
-echo "Value of dont show flag: $DONT_SHOW"
-echo "Value of external output: $EXT_OUTPUT"
-echo "Value of save labels flag: $SAVE_LABELS"
 echo "Value of confidence threshold: $THRESH"
 echo ""
 
@@ -71,15 +59,14 @@ echo ""
 source ~/Data/miniconda3/etc/profile.d/conda.sh                # Workaround (conda activate does not work from bash)
 conda activate yolo && echo "Conda virtual environment activated successfully!"
 
-# Test image
-echo "Testing image..."
+# Test YOLOv4 on an image
+echo "Testing YOLOv4 on an image..."
 echo ""
 cd $DARKNET_REPO_PATH
-#python darknet_images.py -h
 python darknet_images.py --input $INPUT --batch_size $BATCH_SIZE --weights $WEIGHTS --dont_show --ext_output --save_labels --config_file $CONFIG_FILE --data_file $DATA_FILE --thresh $THRESH
 
-# Deactivate Conda Environment
-echo "Deactivating Conda Environment..."
+# Deactivate conda virtual environment
+echo "Deactivating Conda virtual environment..."
 echo ""
 conda deactivate
 

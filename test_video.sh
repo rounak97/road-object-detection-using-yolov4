@@ -5,19 +5,16 @@
 #####################################################################################################################
 
 # Provide full path to the darknet repository
-DARKNET_REPO_PATH=/home/sourab/Data/temp3/darknet                              #e.g. /home/user/darknet
+DARKNET_REPO_PATH=/home/sourab/Data/temp5/darknet                              #e.g. /home/user/darknet
 
 # Provide full paths to the road-object-detection-using-yolo-v4 repository
 ROAD_REPO_PATH=/home/sourab/Data/temp3/road-object-detection-using-yolov4      #e.g. /home/user/repo-name
 
-# Provide full path to the script folder
-SCRIPT_FOLDER=/home/sourab/Data/repos/road-object-detection-using-yolov4       #e.g. /home/user/master-thesis/scripts
-
-# Provide full path to the input image
-INPUT=$DARKNET_REPO_PATH/data/bdd100k/images/100k/test/cc1c40bb-d0ce34c5.jpg   #e.g. /home/user/image.jpg
+# Provide full path to the input video
+INPUT=/home/sourab/Data/temp6/test-output.avi                                  #e.g. /home/user/video.avi
 
 # Provide file name of the output file
-OUT_FILENAME=cc1c40bb-d0ce34c5-output                                          #e.g. cc1c40bb-d0ce34c5-output
+OUT_FILENAME=/home/sourab/Data/temp6/test-output-yolo.avi                      #e.g. /home/user/video-output.avi
 
 # Provide full path to the weights file
 WEIGHTS=$ROAD_REPO_PATH/weights/yolov4-tiny-bdd100k_best.weights               #e.g. /home/user/darknet/backup/
@@ -32,12 +29,6 @@ DATA_FILE=$DARKNET_REPO_PATH/data/bdd100k/bdd100k.data                         #
 ######################################## UPDATE BELOW FLAGS BEFORE RUNNING ##########################################
 #####################################################################################################################
 
-# Set to True if windows inference display is **not** available
-DONT_SHOW=False                                                                #e.g. True, False
-
-# Set to True if bounding box coordinates of the detected objects need to be displayed
-EXT_OUTPUT=True                                                                #e.g. True, False
-
 # Set a value to remove detections with lower confidence
 THRESH=0.25                                                                    #e.g. 0.1, 0.2, 0.3...
 
@@ -49,31 +40,30 @@ THRESH=0.25                                                                    #
 echo "Printing paths and flags set..."
 echo "Path to the darknet repository: $DARKNET_REPO_PATH"
 echo "Path to the road-object-detection-using-yolov4 repository: $ROAD_REPO_PATH"
-echo "Path of the bash script: $SCRIPT_FOLDER"
 echo "Path to the input image: $INPUT"
 echo "Value of output file name: $OUT_FILENAME"
 echo "Path to the weights file: $WEIGHTS"
 echo "Path to the config file: $CONFIG_FILE"
 echo "Path to the data file: $DATA_FILE"
-echo "Value of dont show flag: $DONT_SHOW"
-echo "Value of external output: $EXT_OUTPUT"
 echo "Value of confidence threshold: $THRESH"
 echo ""
 
-# Activate conda virtual environment to run from bash
+# Initialize conda virtual environment to run from bash
 echo "Activating conda virtual environment to run from bash..."
 echo ""
-conda init bash
+conda init bash && echo "Conda virtual environment initialized successfully!"
 
 # Activating the conda virtual environment
-echo "Creating the conda virtual environment..."
+echo "Activating the conda virtual environment..."
 echo ""
-conda activate yolo
+source ~/Data/miniconda3/etc/profile.d/conda.sh                # Workaround (conda activate does not work from bash)
+conda activate yolo && echo "Conda virtual environment activated succssfully!"
 
-# Test image
-python $DARKNET_REPO_PATH/darknet_video.py --input $INPUT --out_filename $OUT_FILENAME --weights $WEIGHTS \
---dont_show $DONT_SHOW --ext_output $EXT_OUTPUT --config_file $CONFIG_FILE  --data_file $DATA_FILE \
---thresh $THRESH
+# Test video
+echo "Testing YOLOv4 on video..."
+echo ""
+cd $DARKNET_REPO_PATH
+python darknet_video.py --input $INPUT --out_filename $OUT_FILENAME --weights $WEIGHTS --dont_show --ext_output --config_file $CONFIG_FILE --data_file $DATA_FILE --thresh $THRESH
 
 # Deactivate Conda Environment
 echo "Deactivating Conda Environment..."
@@ -83,4 +73,4 @@ conda deactivate
 # Exit script
 echo "Exiting script..."
 echo ""
-return 0
+exit 0
