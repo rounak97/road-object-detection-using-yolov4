@@ -5,16 +5,13 @@
 ###################################################################################################################
 
 # Provide full path to the darknet repository
-DARKNET_REPO_PATH=/home/sourab/Data/temp3/darknet                           #e.g. /home/user/darknet
+DARKNET_REPO_PATH=/home/sourab/Data/temp5/darknet                           #e.g. /home/user/darknet
 
 # Provide full paths to the road-object-detection-using-yolo-v4 repository
 ROAD_REPO_PATH=/home/sourab/Data/temp3/road-object-detection-using-yolov4   #e.g. /home/user/repo-name
 
 # Provide full path to the dataset
 DATA_PATH=/home/sourab/Data/dataset/DeepDrive                               #e.g. /home/user/DeepDrive
-
-# Provide full path to the script folder
-SCRIPT_FOLDER=/home/sourab/Data/repos/road-object-detection-using-yolov4    #e.g. /home/user/master-thesis/scripts
 
 ###################################################################################################################
 ##################################### UPDATE BELOW FLAGS BEFORE RUNNING ###########################################
@@ -26,6 +23,7 @@ OPENCV=1                                                                    #e.g
 GPU=1                                                                       #e.g. 0, 1
 CUDNN=1                                                                     #e.g. 0, 1
 CUDNN_HALF=0                                                                #e.g. 0, 1
+LIBSO=1                                                                     #e.g. 0, 1
 
 ###################################################################################################################
 ##################################### DO NOT MODIFY THE SETTINGS BELOW ############################################
@@ -35,32 +33,30 @@ CUDNN_HALF=0                                                                #e.g
 echo "Cleaning up environment..."
 echo ""
 rm -rf $DARKNET_REPO_PATH
-rm -rf $ROAD_REPO_PATH
 conda remove --name yolo --all --yes
 
 # Print current path and provided path
 echo "Path to the dataset: $DATA_PATH"
-echo "Path of the bash script: $SCRIPT_FOLDER"
-echo "Path to the darknet repository: $DARKNET_REPO_PATH"
 echo "Path to the road-object-detection-using-yolov4 repository: $ROAD_REPO_PATH"
+echo "Path to the darknet repository: $DARKNET_REPO_PATH"
 echo ""
 
-# Clone the repositories
-echo "Cloning the repositories..."
+# Clone darknet repositories
+echo "Cloning darknet repositories..."
 echo ""
 git clone https://github.com/AlexeyAB/darknet.git $DARKNET_REPO_PATH
-git clone https://github.com/sourabbapusridhar/road-object-detection-using-yolov4.git $ROAD_REPO_PATH
 
 # Activate conda virtual environment to run from bash
 echo "Activating conda virtual environment to run from bash..."
 echo ""
-conda init bash
+conda init bash && echo "Conda virtual environment initiated successfully!"
 
 # Create a conda virtual environment
 echo "Creating a conda virtual environment..."
 echo ""
-conda env create -f environment.yml
-conda activate yolo
+source ~/Data/miniconda3/etc/profile.d/conda.sh               # Workaround (conda activate does not work from bash)
+conda env create -f environment.yml && echo "Conda virtual environment created successfully!"
+conda activate yolo && echo "Conda virtual environment activated successfully!"
 
 # Update Makefile based on requirements
 echo "Updating makefile based on requirements..."
@@ -85,6 +81,11 @@ if [[ $CUDNN_HALF -eq 1 ]] # Check if CUDNN_HALF is set to 1
 then
 sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile && echo "Flag to build with CUDNN_HALF updated"
 fi 
+
+if [[ $LIBSO -eq 1 ]] # Check if LIBSO is set to 1
+then
+sed -i 's/LIBSO=0/LIBSO=1/' Makefile && echo "Flag to build with LIBSO updated"
+fi
 
 # Build darknet
 echo "Building darknet..."
@@ -161,4 +162,4 @@ conda deactivate
 # Exit script
 echo "Exiting script..."
 echo ""
-return 0
+exit 0
