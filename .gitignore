@@ -3,6 +3,16 @@ data/*
 !data/bdd100k.data
 !data/bdd100k.names
 
+# Ignore Additional Files from the Output Folder
+output/*
+!output/README.md
+!output/test-image-1.jpg
+!output/test-image-2.jpg
+!output/test-image-3.jpg
+!output/test-image-4.jpg
+!output/test-video.mp4
+!output/test-video-output.gif
+
 # Ignore Python Output Files
 __pycache__
 
