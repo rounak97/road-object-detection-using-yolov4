@@ -4,9 +4,9 @@
 
 The goal of this project is to detect Road Objects using [YOLOv4](https://github.com/AlexeyAB/darknet). The network is trained on [Berkley DeepDrive Dataset](https://bdd-data.berkeley.edu/).
 
-<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-1.jpg" alt="Test Image 1" width="250"> <img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg" alt="Test Image 2" width="250">
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-1.jpg" alt="Test Image 1" width="350"> <img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg" alt="Test Image 2" width="350">
 
-<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif" alt="Test Video" width="250">
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif" alt="Test Video">
 
 ## Dataset
 ### Berkley DeepDrive Dataset [[Link](https://bdd-data.berkeley.edu/index.html)]:
