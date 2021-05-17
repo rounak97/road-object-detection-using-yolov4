@@ -4,11 +4,10 @@
 
 The goal of this project is to detect Road Objects using [YOLOv4](https://github.com/AlexeyAB/darknet). The network is trained on [Berkley DeepDrive Dataset](https://bdd-data.berkeley.edu/).
 
-|---------------------|---------------------|
-|![Test Image 1](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-1.jpg)|![Test Image 2](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg)|
-|-------------------------------------------|
-|![Test Video](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif)|
-|-------------------------------------------|
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-1.jpg" alt="Test Image 1" width="250"> <img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg" alt="Test Image 2" width="250">
+
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif" alt="Test Video" width="250">
+
 ## Dataset
 ### Berkley DeepDrive Dataset [[Link](https://bdd-data.berkeley.edu/index.html)]:
 The Berkely DeepDrive Dataset is a dataset for evaluating image recognition algorithms' exciting progress on autonomous driving. The dataset possesses geographic, environmental, and weather diversity, which is useful for training models that are less likely to be surprised by new conditions. The dataset is the largest driving video dataset with 100K videos and 10 tasks. The video sequences also include GPS locations, IMU data, and timestamps. The 2D Bounding Boxes are annotated on the images for bus, traffic light, traffic sign, person, bike, truck, motor, car, train, and rider.
