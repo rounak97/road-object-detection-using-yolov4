@@ -187,7 +187,7 @@ def detect_objects(nnWeights, nnConfiguration, labelsPath, confidenceThreshold, 
 
         boxes, confidences, classIds, ids = make_prediction(net, layerNames, image, confidenceThreshold, nmsThreshold)
         image = draw_bounding_boxes(image, boxes, confidences, classIds, ids, labels, colors)
-        fileName = str(os.path.normpath(imagePath)).split("\\")[-1]
+        fileName = str(os.path.basename(os.path.abspath(imagePath)))
 
         cv2.imwrite("output/{}".format(fileName), image)
     else:
@@ -199,7 +199,7 @@ def detect_objects(nnWeights, nnConfiguration, labelsPath, confidenceThreshold, 
         width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
         fps = video.get(cv2.CAP_PROP_FPS)
-        fileName = str(os.path.normpath(videoPath)).split("\\")[-1].split(".")[0] + ".mp4" #if videoPath else "camera.avi"
+        fileName = str(os.path.basename(os.path.abspath(videoPath))).split(".")[0] + ".mp4"
         output = cv2.VideoWriter("output/{}".format(fileName), cv2.VideoWriter_fourcc("M", "P", "4", "V"), fps, (width, height))
 
         while video.isOpened():
