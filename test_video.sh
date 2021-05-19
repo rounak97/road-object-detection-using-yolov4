@@ -52,7 +52,8 @@ conda init bash && echo "Conda virtual environment initialized successfully!"
 # Activating the conda virtual environment
 echo "Activating the conda virtual environment..."
 echo ""
-source ~/Data/miniconda3/etc/profile.d/conda.sh                # Workaround (conda activate does not work from bash)
+CONDA_BASE=$(conda info --base) && echo "Path to the conda base environment is $CONDA_BASE"
+source $CONDA_BASE/etc/profile.d/conda.sh && echo "Conda functions made available to subshells successfully!"
 conda activate yolo && echo "Conda virtual environment activated successfully!"
 
 # Test YOLOv4 on an image
