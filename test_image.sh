@@ -4,33 +4,30 @@
 ######################################## UPDATE BELOW PATHS BEFORE RUNNING ##########################################
 #####################################################################################################################
 
-# Provide full path to the darknet repository
-DARKNET_REPO_PATH=/home/sourab/Data/temp5/darknet                              #e.g. /home/user/darknet
-
-# Provide full paths to the road-object-detection-using-yolo-v4 repository
-ROAD_REPO_PATH=/home/sourab/Data/temp3/road-object-detection-using-yolov4      #e.g. /home/user/repo-name
+# Provide full paths to the road-object-detection-using-yolov4 repository
+ROAD_REPO_PATH=/home/sourab/Data/repos/road-object-detection-using-yolov4      #e.g. /home/user/repo-name
 
 # Provide full path to the input image
-INPUT=$DARKNET_REPO_PATH/data/bdd100k/images/100k/test/cc1c40bb-d0ce34c5.jpg   #e.g. /home/user/image.jpg
+INPUT_IMAGE=/home/sourab/Data/temp/test/test-image-1.jpg                       #e.g. /home/user/image.jpg
 
 # Provide full path to the weights file
-WEIGHTS=$ROAD_REPO_PATH/weights/yolov4-tiny-bdd100k_best.weights               #e.g. /home/user/darknet/backup/
+WEIGHTS_PATH=$ROAD_REPO_PATH/weights/yolov4-tiny-bdd100k_best.weights          #e.g. /home/user/darknet/backup/
 
 # Provide full path to the config file
-CONFIG_FILE=$DARKNET_REPO_PATH/cfg/yolov4-tiny-bdd100k.cfg                     #e.g. /home/user/darknet/cfg/
+CONFIG_PATH=$ROAD_REPO_PATH/config/yolov4-tiny-bdd100k.cfg                     #e.g. /home/user/darknet/cfg/
 
-# Provide full path to the data file
-DATA_FILE=$DARKNET_REPO_PATH/data/bdd100k/bdd100k.data                         #e.g. /home/user/darknet/data/
+# Provide full path to the labels file
+LABELS_PATH=$ROAD_REPO_PATH/data/bdd100k.names                                 #e.g. /home/user/darknet/config/
 
 #####################################################################################################################
 ######################################## UPDATE BELOW FLAGS BEFORE RUNNING ##########################################
 #####################################################################################################################
 
-# Provide the number of images to be processed at the same time
-BATCH_SIZE=1                                                                   #e.g. 1, 2, 3....
+# Set a value of confidence threshold to remove detections with lower confidence
+CONFIDENCE_THRESH=0.5                                                          #e.g. 0.1, 0.2, 0.3...
 
-# Set a value to remove detections with lower confidence
-THRESH=0.25                                                                    #e.g. 0.1, 0.2, 0.3...
+# Set a value of non-maximum suppression threshold to reduce false positives 
+NMS_THRESHOLD=0.3                                                              #e.g. 0.1, 0.2, 0.3...
 
 #####################################################################################################################
 ######################################## DO NOT MODIFY THE SETTINGS BELOW ###########################################
@@ -38,14 +35,13 @@ THRESH=0.25                                                                    #
 
 # Print current path and provided path
 echo "Printing paths and flags set..."
-echo "Path to the darknet repository: $DARKNET_REPO_PATH"
 echo "Path to the road-object-detection-using-yolov4 repository: $ROAD_REPO_PATH"
-echo "Path to the input image: $INPUT"
-echo "Path to the weights file: $WEIGHTS"
-echo "Path to the config file: $CONFIG_FILE"
-echo "Path to the data file: $DATA_FILE"
-echo "Value of batch size: $BATCH_SIZE"
-echo "Value of confidence threshold: $THRESH"
+echo "Path to the input image: $INPUT_IMAGE"
+echo "Path to the weights file: $WEIGHTS_PATH"
+echo "Path to the config file: $CONFIG_PATH"
+echo "Path to the labels file: $LABELS_PATH"
+echo "Value of confidence threshold: $CONFIDENCE_THRESH"
+echo "Value of non-maximum suppression threshold: $NMS_THRESHOLD"
 echo ""
 
 # Activate conda virtual environment to run from bash
@@ -62,8 +58,8 @@ conda activate yolo && echo "Conda virtual environment activated successfully!"
 # Test YOLOv4 on an image
 echo "Testing YOLOv4 on an image..."
 echo ""
-cd $DARKNET_REPO_PATH
-python darknet_images.py --input $INPUT --batch_size $BATCH_SIZE --weights $WEIGHTS --dont_show --ext_output --save_labels --config_file $CONFIG_FILE --data_file $DATA_FILE --thresh $THRESH
+cd $ROAD_REPO_PATH
+python detection.py --nnWeights $WEIGHTS_PATH --nnConfiguration $CONFIG_PATH --labelsPath $LABELS_PATH --confidenceThreshold $CONFIDENCE_THRESH --nmsThreshold $NMS_THRESHOLD --imagePath $INPUT_IMAGE
 
 # Deactivate conda virtual environment
 echo "Deactivating Conda virtual environment..."

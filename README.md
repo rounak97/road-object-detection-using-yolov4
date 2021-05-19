@@ -1,11 +1,11 @@
 # Road Object Detection Using YOLOv4
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/colab/yolov4_bdd100k.ipynb)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/colab/yolov4_bdd100k.ipynb)
 
 The goal of this project is to detect Road Objects using [YOLOv4](https://github.com/AlexeyAB/darknet). The network is trained on [Berkley DeepDrive Dataset](https://bdd-data.berkeley.edu/).
 
-![Test Video](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif)
-![Test Image](https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg)
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-video-output.gif?raw=true" width="1280">
+<img src="https://github.com/sourabbapusridhar/road-object-detection-using-yolov4/blob/master/output/test-image-2.jpg?raw=true" width="1280">
 
 ## Dataset
 ### Berkley DeepDrive Dataset [[Link](https://bdd-data.berkeley.edu/index.html)]:
@@ -16,8 +16,8 @@ The Berkely DeepDrive Dataset is a dataset for evaluating image recognition algo
 **Important:** The videos, images and the labels are only used for educational, research and not-for-profit purposes.
 
 ## Requirements
-The code is based on Python3 (>=3.7). There are a few dependencies to run the code. The major libraries are listed as follows:
-* Tensorflow (>=2.3.0)
+The code is based on Python3 (>=3.8) and only supports GPU. There are a few dependencies to run the code. The major libraries are listed as follows:
+* OpenCV (>=4.5)
 
 ## Installation Guide
 To install the anaconda environment, navigate to the repository folder, and run the following command in the terminal:
@@ -39,19 +39,23 @@ $bash train.sh
 ```
 
 ## Testing the YOLOv4 network
-### Test on an image
+### Testing on an image
 To test the YOLOv4 network on an image in the Conda environment, please update the paths and flags in the script `test_image.sh` and run the following command in the terminal:
 
 ```
 $bash test_image.sh
 ```
 
-### Test on a video
+The output image would be generated in the `output` folder.
+
+### Testing on a video
 To test the YOLOv4 network on a video in the Conda environment, please update the paths and flags in the script `test_video.sh` and run the following command in the terminal:
 
 ```
 $bash test_video.sh
 ```
+
+The output video would be generated in the `output` folder.
 
 ## Clean-up Guide
 To remove the anaconda environment, navigate to the repository folder, and run the following command in the terminal:
@@ -64,8 +68,7 @@ $conda remove --name yolo --all
 * Sourab Bapu Sridhar
 
 ## Acknowledgements
-The code in this repository is based 
+The code in this repository is inspired from the project [BDD100k-YOLOV3-tiny](https://github.com/yogeshgajjar/BDD100k-YOLOV3-tiny.git). 
 
 ## License
 This project is released under the terms of [MIT License](LICENSE).
-

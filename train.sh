@@ -7,7 +7,7 @@
 # Provide full path to the darknet repository
 DARKNET_REPO_PATH=/home/sourab/Data/temp5/darknet                           #e.g. /home/user/darknet
 
-# Provide full paths to the road-object-detection-using-yolo-v4 repository
+# Provide full paths to the road-object-detection-using-yolov4 repository
 ROAD_REPO_PATH=/home/sourab/Data/temp3/road-object-detection-using-yolov4   #e.g. /home/user/repo-name
 
 # Provide full path to the dataset
