@@ -5,10 +5,10 @@
 ###################################################################################################################
 
 # Provide full path to the darknet repository
-DARKNET_REPO_PATH=/home/sourab/Data/temp5/darknet                           #e.g. /home/user/darknet
+DARKNET_REPO_PATH=/home/sourab/Data/repos/darknet                           #e.g. /home/user/darknet
 
 # Provide full paths to the road-object-detection-using-yolov4 repository
-ROAD_REPO_PATH=/home/sourab/Data/temp3/road-object-detection-using-yolov4   #e.g. /home/user/repo-name
+ROAD_REPO_PATH=/home/sourab/Data/repos/road-object-detection-using-yolov4   #e.g. /home/user/repo-name
 
 # Provide full path to the dataset
 DATA_PATH=/home/sourab/Data/dataset/DeepDrive                               #e.g. /home/user/DeepDrive
@@ -54,7 +54,8 @@ conda init bash && echo "Conda virtual environment initiated successfully!"
 # Create a conda virtual environment
 echo "Creating a conda virtual environment..."
 echo ""
-source ~/Data/miniconda3/etc/profile.d/conda.sh               # Workaround (conda activate does not work from bash)
+CONDA_BASE=$(conda info --base) && echo "Path to the conda base environment is $CONDA_BASE"
+source $CONDA_BASE/etc/profile.d/conda.sh && echo "Conda functions made available to subshells successfully!"
 conda env create -f environment.yml && echo "Conda virtual environment created successfully!"
 conda activate yolo && echo "Conda virtual environment activated successfully!"
 
