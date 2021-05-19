@@ -60,7 +60,7 @@ conda activate yolo && echo "Conda virtual environment activated successfully!"
 echo "Testing YOLOv4 on an image..."
 echo ""
 cd $ROAD_REPO_PATH
-python detection.py --nnWeights $WEIGHTS_PATH --nnConfiguration $CONFIG_PATH --labelsPath $LABELS_PATH --confidenceThreshold $CONFIDENCE_THRESH --nmsThreshold $NMS_THRESHOLD --videoPath $INPUT_IMAGE
+python detection.py --nnWeights $WEIGHTS_PATH --nnConfiguration $CONFIG_PATH --labelsPath $LABELS_PATH --confidenceThreshold $CONFIDENCE_THRESH --nmsThreshold $NMS_THRESHOLD --videoPath $INPUT_VIDEO
 
 # Deactivate conda virtual environment
 echo "Deactivating Conda virtual environment..."
