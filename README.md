@@ -65,7 +65,7 @@ $conda remove --name yolo --all
 ```
 
 ## Authors
-* Sourab Bapu Sridhar
+* Rounak Kundu
 
 ## Acknowledgements
 This project is inspired from the [BDD100k-YOLOV3-tiny](https://github.com/yogeshgajjar/BDD100k-YOLOV3-tiny.git) project. 
